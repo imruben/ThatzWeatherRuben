@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+
+Route::get('/test', function() {
+
+    $pizzas= [
+        ['type' => 'peperonni', 'base' => 'queso'],
+        ['type' => 'barbacoa', 'base' => 'queso y tomate'],
+        ['type' => 'vegetal', 'base' => 'nada']
+    ];
+
+    return view('test', ['pizzas' => $pizzas ]);
+});
+
