@@ -1,8 +1,29 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Fuente principal (mulish)
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
 
-// Variables
+//Fuente principal de la pagina
+$font-family-base: 'Mulish';
+
+// Cambio de variables de bootstrap 
+
+//azul claro
+$primary: #00bde0;
+
+//azul oscuro
+$secondary:rgba(48, 108, 119, 0.7);
+
+//azul oscuro 2
+$info: #306c77;
+
+// Cambio colores input
+$input-placeholder-color: white;
+$input-plaintext-color:  white;
+
+// Import
 @import 'variables';
+
+
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
