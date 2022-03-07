@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Controlador donde estaran las funciones
+use App\Http\Controllers\WeatherController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('index');
-});
+
+//Llamamos a la funcion Show del controlador WeatherController para mostrar el index.blade.php
+Route::get('/index',[WeatherController::class,'show']);
 

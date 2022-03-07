@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('day3_temp')->nullable();
             $table->integer('day4_temp')->nullable();
             $table->integer('day5_temp')->nullable();
+            $table->integer('day6_temp')->nullable();
         });
     }
     
@@ -36,3 +37,4 @@ return new class extends Migration
         Schema::dropIfExists('weather');
     }
 };
+ 
