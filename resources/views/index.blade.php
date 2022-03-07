@@ -14,25 +14,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <style>
-       
+
         body{
-            width:100%;
             background-image: url("/img/fondo.png");
             height: 100%;
-
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        #logo{
-            height:150px;
-            width:auto;
+            background-size: cover; 
         }
 
         #input{
-            background-color:rgba(0,0,0,0);
-       
+            background-color:rgba(0,0,0,0); 
+        }      
     }
 
 
@@ -41,33 +34,43 @@
 
 <body>
     
-    <div class="container w-50 mt-5">
 
-        <div class="row justify-content-center ">
-            <img class="img-fluid" id="logo" src="/img/logo.png" alt="">
+    <div class="container mt-5 ">
+
+        <div class="row justify-content-center">
+            <div class="col-11 col-lg-7 text-center">
+                <img class="img-fluid" id="logo" src="/img/logo.png" alt="">
+            </div>
         </div>
       
         <div class="row justify-content-center mt-5">
-        <p class=" lead text-center my-5 text-light fw-bold">Entérate del tiempo en la zona exacta que te interesa buscando por código postal.</p>
+            <div class="col-11 col-lg-5">
+                <p class=" lead text-center my-5 text-light fw-bold">Entérate del tiempo en la zona exacta que te interesa buscando por código postal.</p>
+            </div>
         </div>
 
-        <div class="row justify-content-center align-items-center text-light">
-        <input type="email" class="form-control text-light fs-4 border-2 p-2 px-3" id="input" placeholder="Introduce el código postal">  
+        <div class="row text-light justify-content-center">
+            <div class="col-11 col-lg-6">   
+                <input type="email" class="form-control text-light fs-4 border-2 p-2 px-3" id="input" placeholder="Introduce el código postal">  
+            </div>
         </div>
 
-        <div class="row justify-content-center mt-4">
-        <!--<input class=" lead btn btn-lg btn-primary text-light fw-bold" type="submit" value="Buscar">-->
-        <a href="#" class="btn btn-primary btn-lg text-light fs-3 shadow fw-bold" type="submit" role="button" aria-disabled="true">Buscar
-        <i class="bi bi-search ms-2"></i>
-        </a> 
-        
+        <div class="row mt-4 justify-content-center">
+            <div class="col-11 col-lg-6">
+                <a href="#" class="btn btn-primary btn-lg text-light fs-3 shadow fw-bold w-100" type="submit" role="button" aria-disabled="true">Buscar
+                <i class="bi bi-search ms-2"></i></a>  
+            </div>            
         </div>
-
+            
         <div class="row justify-content-center text-light text-center my-5">
-        <p class="lead fw-bold">¡Que la lluvia no te pare!</p>
+            <div class="col-11 col-lg-6">
+                <p class="lead fw-bold">¡Que la lluvia no te pare!</p>
+            </div>
         </div>
 
     </div>
+
+
 
 </body>
 </html>
