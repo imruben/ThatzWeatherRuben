@@ -36,7 +36,7 @@ class WeatherController extends Controller
         //Unidades en las que se mostrará el tiempo (grados celsius en este caso)
         $units = 'metric';
 
-        $zip_code = request('zipCode');
+        $zip_code = '08860';
 
         //Codigo postal 
         //$zip_code = '08860';
