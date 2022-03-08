@@ -17,11 +17,19 @@ use App\Http\Controllers\WeatherController;
 |
 */
 
+//ruta predeterminada laravel con la view welcome
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::post('/index', [WeatherController::class, 'store']);
 
-//Llamamos a la funcion Show del controlador WeatherController para mostrar el index.blade.php
-Route::get('/index',[WeatherController::class,'show']);
+//ruta index con nuestra view index
+Route::get('/index', function () {
+    return view('index');
+});
 
+Route::post('/index',[WeatherController::class, 'store']);
+
+//Llamamos al controlador WeatherController y usamos la funcion WeatherInfo
+Route::get('/weatherInfo',[WeatherController::class,'indexWeather']);

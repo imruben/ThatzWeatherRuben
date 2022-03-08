@@ -13,20 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('weather', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('city');
+        Schema::create('search_info', function (Blueprint $table) {
+            $table->id();
+            //campos "created_at y "updated_at"
+            $table->timestamps();
+            //campos que querremos guardar en la base de datos
+            $table->string('name')->nullable();
             $table->integer('zip_code');
-            $table->integer('current_temp');
+            $table->integer('current_temp')->nullable();
             $table->integer('day1_temp')->nullable();
             $table->integer('day2_temp')->nullable();
             $table->integer('day3_temp')->nullable();
             $table->integer('day4_temp')->nullable();
             $table->integer('day5_temp')->nullable();
-            $table->integer('day6_temp')->nullable();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
@@ -34,7 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weather');
+        Schema::dropIfExists('search_info');
     }
 };
- 
