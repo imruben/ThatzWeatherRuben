@@ -13,21 +13,6 @@ use App\Models\searchInfo;
 class WeatherController extends Controller
 {
 
-    public function store() {
-
-        $informacionBusqueda = new SearchInfo();
-
-        //recogemos el cp del form del view Index
-        $inputZipCode = request('zipCode');
-
-        //lo añadimos a la columna zip_code de la base de datos 
-        $informacionBusqueda-> zip_code = $inputZipCode;
-
-        $informacionBusqueda->save();
-
-        return redirect('/weatherInfo');
-    }
-
     //index se suele usar para mostrar la vista y los records
     public function indexWeather() {
        
@@ -36,10 +21,8 @@ class WeatherController extends Controller
         //Unidades en las que se mostrará el tiempo (grados celsius en este caso)
         $units = 'metric';
 
-        $zip_code = '08860';
-
         //Codigo postal 
-        //$zip_code = '08860';
+        $zip_code = '08860';
         //lengua
         $language = 'es';
 
@@ -53,7 +36,7 @@ class WeatherController extends Controller
 
         $infoWeatherForecast = HTTP::get('api.openweathermap.org/data/2.5/forecast/?zip='.$zip_code.',es&units='.$units.'&lang='.$language.'&appid='.$api_key.'');
         $infoWeatherForecastArray = $infoWeatherForecast->json();
-          
+        
         //API PREVISION 3 HORAS 
 
         
@@ -79,24 +62,23 @@ class WeatherController extends Controller
 
     }
 
+    public function store() {
+
+        $informacionBusqueda = new SearchInfo();
+
+        //recogemos el cp del form del view Index
+        $inputZipCode = request('zipCode');
+
+        //lo añadimos a la columna zip_code de la base de datos 
+        $informacionBusqueda-> zip_code = $inputZipCode;
+
+        $informacionBusqueda->save();
+
+        return redirect('/weatherInfo');
+    }
+
+
   
 
-
-    /*
-   //Show se suele usar para mostrar un solo item o record (como un id) 'Wheather/{id}'
-    public function showInfo($ZipCode) {
-        
-
-
-        return view ('show',);
-        
-    }
-
-    //Create se suele usar para crear otra view por ejemplo para un form para añadir algo a la database 'Weather/create'
-    public function CreateInfo() {
-        
-        
-    }
-*/
 }
 

@@ -25,7 +25,7 @@ Route::get('/', function () {
 //Route::post('/index', [WeatherController::class, 'store']);
 
 //ruta index con nuestra view index
-Route::get('/index', function () {
+Route::get('/Home', function () {
     return view('index');
 });
 

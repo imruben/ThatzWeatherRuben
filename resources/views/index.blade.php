@@ -13,8 +13,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-    
-
     <style>
 
         body{
@@ -38,7 +36,7 @@
     <div class="container mt-5 ">
 
         <div class="row justify-content-center">
-            <div class="col-11 col-lg-7 text-center">
+             <div class="col-11 col-lg-7 text-center">
                 <img class="img-fluid" id="logo" src="/img/logo.png" alt="">
             </div>
         </div>
