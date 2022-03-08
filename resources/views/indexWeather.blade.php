@@ -31,8 +31,9 @@
     
 </head>
 <body>
-
-    <div class="container p-6">
+    
+    <div class="container-fluid w-75">
+        <!-- Row con logo -->
         <div class="row justify-content-center mt-5">
             <div class="col-11 col-lg-6 text-center">
                 <img class="img-fluid" id="logo" src="/img/logo.png" alt="">
@@ -42,24 +43,29 @@
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="container w-75 h-50 bg-secondary shadow">
-                <div class="row justify-content-center align-items-center m-3">
+        <!-- Row con todo lo demas -->
+        <div class="row mt-5 ">
+            <!-- Caja tiempo busqueda -->
+            <div class="col-12 col-lg-8 bg-secondary shadow">
+                <!-- Info arriba -->
+                <div class="row align-items-center m-3">
                     <div class="col ">       
                         <p class="text-light fs-5">Código Postal: </p>
                         <p class="text-light fs-5"> Ciudad: <em class="fw-bold">{{$infoWeatherCurrentArray['name']}} </em></p>
                     </div>
                     <div class="col text-light ">
                         <i class="bi bi-search me-2"></i></button>  
-                        <a class= "align-self-center text-light fs-5"href="">Buscar otra zona</a>
+                        <a class= "text-light fs-5"href="">Buscar otra zona</a>
                     </div>
                 </div>
-                <div class="row text-light p-4">
+                <!-- Row con todas temp -->
+                <div class="row text-light p-4 mb-5">
+                    <!-- Columna temp actual -->
                     <div class="col-12 col-lg-5 border-end text-center">
                         <div class="row mb-3">
                             <p class="fs-4">Ahora</p>                                                    
                         </div>
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-5">
                                 <i class="fa-solid fa-cloud fa-5x"></i>
                             </div>
@@ -67,13 +73,12 @@
                                 <div class="fs-3 fw-bold">{{$infoWeatherCurrentArray['weather']['0']['description']}}</div>
                                 <p class="display-4 fw-bold">{{$infoWeatherCurrentArray['main']['temp']}}º</p>
                             </div>    
-                            <div>
-                                
+                            <div>                                
                             </div>        
                         </div>
                     </div>
-
-                    <div class="col-12 col-lg-7 text-center">
+                        <!-- Columna temp proximas horas -->
+                    <div class="col-12 col-lg-7 text-center mt-4">
                         <div class="row mb-3">
                             <p class="fs-4">Próximas horas</p>
                         </div>
@@ -100,16 +105,83 @@
                                 <p>{{$infoWeatherForecastArray['list']['3']['dt_txt']}}</p>
                                 <i class="fa-solid fa-cloud fa-3x"></i> 
                                 <p>{{$infoWeatherForecastArray['list']['3']['weather']['0']['description']}}</p>
-                                <p class="fw-bold fs-5">{{$infoWeatherForecastArray['list']['3']['main']['temp']}}º</p>     
-                                
+                                <p class="fw-bold fs-5">{{$infoWeatherForecastArray['list']['3']['main']['temp']}}º</p>                                 
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>                   
                 </div>
-
-
             </div>
+                <!-- Columna con top5 temp mas frias -->
+            <div class="col-12 col-lg-4">
+                <div class="row text-center">
+                    <p class="fs-3 text-light mb-3">Top 5 de las zonas más frias según tus busquedas</p>
+                </div>
+                <div class="row align-items-center border-bottom">
+                    <div class="col text-center ">
+                        <p class="text-light display-6">1.</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light display-4">-3º</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                    </div>    
+                </div>
+                <div class="row align-items-center border-bottom">
+                    <div class="col text-center ">
+                        <p class="text-light display-6">1.</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light display-4">-3º</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                    </div>
+                </div>
+                <div class="row align-items-center border-bottom">
+                    <div class="col text-center ">
+                        <p class="text-light display-6">1.</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light display-4">-3º</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                    </div>
+                </div>
+                <div class="row align-items-center border-bottom">
+                    <div class="col text-center ">
+                        <p class="text-light display-6">1.</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light display-4">-3º</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col text-center ">
+                        <p class="text-light display-6">1.</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light display-4">-3º</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                    </div>
+                </div>
+            </div>
+            
+            
+
+
+
         </div>
 
 
