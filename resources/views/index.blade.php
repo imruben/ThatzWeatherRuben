@@ -47,7 +47,7 @@
             </div>
         </div>
                 <!-- form que recibe el codigo postal y lo envia a /index-->
-                    <form action="/index" method="POST">
+                    <form action="/weatherInfo" method="POST">
                         <!--evita el error 419-->
                         @csrf
         <div class="row text-light justify-content-center">

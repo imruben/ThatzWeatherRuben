@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
             //campos que querremos guardar en la base de datos
             $table->string('name')->nullable();
-            $table->integer('zip_code');
+            $table->string('zip_code');
             $table->integer('current_temp')->nullable();
             $table->integer('day1_temp')->nullable();
             $table->integer('day2_temp')->nullable();

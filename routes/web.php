@@ -29,7 +29,7 @@ Route::get('/Home', function () {
     return view('index');
 });
 
-Route::post('/index',[WeatherController::class, 'store']);
+Route::post('/weatherInfo',[WeatherController::class, 'zipCodePost']);
 
 //Llamamos al controlador WeatherController y usamos la funcion WeatherInfo
-Route::get('/weatherInfo',[WeatherController::class,'indexWeather']);
+//Route::get('/weatherInfo',[WeatherController::class,'indexWeather']);

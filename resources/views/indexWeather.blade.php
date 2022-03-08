@@ -39,7 +39,7 @@
                 <img class="img-fluid" id="logo" src="/img/logo.png" alt="">
             </div>
             <div class="col-11 col-lg-7 text-end">
-                <p class="fs-3 text-light ">Que la lluvia no te pare!</p>
+                <p class="fs-3 text-light ">Que la lluvia no te pare!</p>                
             </div>
         </div>
 
@@ -50,12 +50,12 @@
                 <!-- Info arriba -->
                 <div class="row align-items-center m-3">
                     <div class="col ">       
-                        <p class="text-light fs-5">Código Postal: </p>
+                        <p class="text-light fs-5">Código Postal: 08860</p>
                         <p class="text-light fs-5"> Ciudad: <em class="fw-bold">{{$infoWeatherCurrentArray['name']}} </em></p>
                     </div>
                     <div class="col text-light ">
                         <i class="bi bi-search me-2"></i></button>  
-                        <a class= "text-light fs-5"href="">Buscar otra zona</a>
+                        <a class= "text-light fs-5"href="/Home">Buscar otra zona</a>
                     </div>
                 </div>
                 <!-- Row con todas temp -->
@@ -67,7 +67,7 @@
                         </div>
                         <div class="row align-items-center">
                             <div class="col-5">
-                                <i class="fa-solid fa-cloud fa-5x"></i>
+                                <i class="fa-solid fa-bolt fa-5x"></i>
                             </div>
                             <div class="col-5">
                                 <div class="fs-3 fw-bold">{{$infoWeatherCurrentArray['weather']['0']['description']}}</div>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="row align-items-center border-bottom">
                     <div class="col text-center ">
-                        <p class="text-light display-6">1.</p>
+                        <p class="text-light display-6">2.</p>
                     </div>
                     <div class="col">
                         <p class="text-light display-4">-3º</p>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="row align-items-center border-bottom">
                     <div class="col text-center ">
-                        <p class="text-light display-6">1.</p>
+                        <p class="text-light display-6">3.</p>
                     </div>
                     <div class="col">
                         <p class="text-light display-4">-3º</p>
@@ -154,7 +154,7 @@
                 </div>
                 <div class="row align-items-center border-bottom">
                     <div class="col text-center ">
-                        <p class="text-light display-6">1.</p>
+                        <p class="text-light display-6">4.</p>
                     </div>
                     <div class="col">
                         <p class="text-light display-4">-3º</p>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col text-center ">
-                        <p class="text-light display-6">1.</p>
+                        <p class="text-light display-6">5.</p>
                     </div>
                     <div class="col">
                         <p class="text-light display-4">-3º</p>

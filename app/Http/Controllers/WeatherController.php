@@ -12,34 +12,44 @@ use App\Models\searchInfo;
 
 class WeatherController extends Controller
 {
-
-    //index se suele usar para mostrar la vista y los records
-    public function indexWeather() {
+    public function zipCodePost() {
        
-        //API KEY OPENWEATHER (CON CUENTA GRATIS)
-        $api_key = '7d03ed723e4aaa7cd7643a7ace8655d9';
-        //Unidades en las que se mostrará el tiempo (grados celsius en este caso)
-        $units = 'metric';
+        //recogemos el cp del form del view Index
+        $inputZipCode = request('zipCode');
 
-        //Codigo postal 
-        $zip_code = '08860';
-        //lengua
-        $language = 'es';
+        //RECOGEMOS DATOS DE LA API 
 
+            //API KEY OPENWEATHER (CON CUENTA GRATIS)
+            $api_key = '7d03ed723e4aaa7cd7643a7ace8655d9';
+            //Unidades en las que se mostrará el tiempo (grados celsius en este caso)
+            $units = 'metric';
 
-        //API TEMP ACTUAL
-        $infoWeatherCurrent = HTTP::get('api.openweathermap.org/data/2.5/weather?zip='.$zip_code.',es&units='.$units.'&lang='.$language.'&appid='.$api_key.'');
-        $infoWeatherCurrentArray = $infoWeatherCurrent->json();
+            //Codigo postal 
+            $zip_code = $inputZipCode;
 
+            //lenguaje
+            $language = 'es';
 
-        //API PREVISION 5 DIAS 
+            //API TEMP ACTUAL
+            $infoWeatherCurrent = HTTP::get('api.openweathermap.org/data/2.5/weather?zip='.$zip_code.',es&units='.$units.'&lang='.$language.'&appid='.$api_key.'');
+            $infoWeatherCurrentArray = $infoWeatherCurrent->json();
 
-        $infoWeatherForecast = HTTP::get('api.openweathermap.org/data/2.5/forecast/?zip='.$zip_code.',es&units='.$units.'&lang='.$language.'&appid='.$api_key.'');
-        $infoWeatherForecastArray = $infoWeatherForecast->json();
+            //API PREVISION CADA 3
+            $infoWeatherForecast = HTTP::get('api.openweathermap.org/data/2.5/forecast/?zip='.$zip_code.',es&units='.$units.'&lang='.$language.'&appid='.$api_key.'');
+            $infoWeatherForecastArray = $infoWeatherForecast->json();
+                 
         
-        //API PREVISION 3 HORAS 
+            $informacionBusqueda = new SearchInfo();
+            $informacionBusqueda-> zip_code = $inputZipCode;
+           /* try {
+                $informacionBusqueda-> zip_code = $inputZipCode;
+            }
+            catch(QueryException $e){
+                $informacionBusqueda-> SearchInfo::update('zip_code' , $inputZipCode);
+            }
+            
+            $informacionBusqueda->save();*/
 
-        
         return view('indexWeather', compact('infoWeatherCurrentArray'), compact('infoWeatherForecastArray'));
 
 
@@ -63,22 +73,22 @@ class WeatherController extends Controller
     }
 
     public function store() {
-
-        $informacionBusqueda = new SearchInfo();
-
-        //recogemos el cp del form del view Index
-        $inputZipCode = request('zipCode');
+        
 
         //lo añadimos a la columna zip_code de la base de datos 
-        $informacionBusqueda-> zip_code = $inputZipCode;
+        
 
-        $informacionBusqueda->save();
+        
 
-        return redirect('/weatherInfo');
+        error_log($inputZipCode);
+
+        //Devolvemos a la 
+        return redirect('/weatherInfo')->with('zipcode', $inputZipCode)
+                                        ->with('pepe','pepe');
     }
 
-
   
+    
 
 }
 
