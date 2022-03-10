@@ -18,6 +18,7 @@
     <script src="https://kit.fontawesome.com/e71ce77d0f.js" crossorigin="anonymous"></script>
     <style>
 
+    /*Pongo la foto del background aqui con css porque no he sabido hacerlo con boostrap*/
         body{
             background-image: url("/img/fondo.png");
             height: 100%;
@@ -25,13 +26,12 @@
             background-repeat: no-repeat;
             background-size: cover; 
         } 
-
     }
     </style>
-    
+ 
 </head>
 <body>
-    
+  
     <div class="container-fluid w-75">
         <!-- Row con logo -->
         <div class="row justify-content-center mt-5">
@@ -46,12 +46,12 @@
         <!-- Row con todo lo demas -->
         <div class="row mt-5 ">
             <!-- Caja tiempo busqueda -->
-            <div class="col-12 col-lg-8 bg-secondary shadow">
+            <div class="col-12 col-lg-9 bg-secondary shadow">
                 <!-- Info arriba -->
                 <div class="row align-items-center m-3">
                     <div class="col ">       
-                        <p class="text-light fs-5">Código Postal: 08860</p>
-                        <p class="text-light fs-5"> Ciudad: <em class="fw-bold">{{$infoWeatherCurrentArray['name']}} </em></p>
+                        <p class="text-light fs-5">Código Postal: {{$zipcode}}</p>
+                        <p class="text-light fs-5">Ciudad: <em class="fw-bold">{{ $city }} </em></p>
                     </div>
                     <div class="col text-light ">
                         <i class="bi bi-search me-2"></i></button>  
@@ -59,60 +59,111 @@
                     </div>
                 </div>
                 <!-- Row con todas temp -->
-                <div class="row text-light p-4 mb-5">
+                <div class="row text-light p-4 ">
                     <!-- Columna temp actual -->
-                    <div class="col-12 col-lg-5 border-end text-center">
+                    <div class="col-12 col-lg-4 border-end text-center">
                         <div class="row mb-3">
                             <p class="fs-4">Ahora</p>                                                    
                         </div>
                         <div class="row align-items-center">
                             <div class="col-5">
-                                <i class="fa-solid fa-bolt fa-5x"></i>
+                            <i class="{{$iconactual}} fa-5x"></i> 
                             </div>
                             <div class="col-5">
-                                <div class="fs-3 fw-bold">{{$infoWeatherCurrentArray['weather']['0']['description']}}</div>
-                                <p class="display-4 fw-bold">{{$infoWeatherCurrentArray['main']['temp']}}º</p>
+                                <div class="fs-3 fw-bold">{{ $descriptactual }}</div>
+                                <p class="display-5 fw-bold">{{ $tempactual }}º</p>
                             </div>    
                             <div>                                
                             </div>        
                         </div>
                     </div>
                         <!-- Columna temp proximas horas -->
-                    <div class="col-12 col-lg-7 text-center mt-4">
-                        <div class="row mb-3">
+                    <div class="col-12 col-lg-6 text-center mt-4 border-end ">
+                        <div class="row mb-3 ">
                             <p class="fs-4">Próximas horas</p>
                         </div>
                         <div class="row">
                             <div class="col-4 col-lg-3 border-end">                              
-                                <p>{{$infoWeatherForecastArray['list']['0']['dt_txt']}}</p>
-                                <i class="fa-solid fa-cloud fa-3x"></i> 
-                                <p>{{$infoWeatherForecastArray['list']['0']['weather']['0']['description']}}</p>
-                                <p class="fw-bold fs-5">{{$infoWeatherForecastArray['list']['0']['main']['temp']}}º</p>                                 
+                                <p>Ahora</p>
+                                <i class="{{$iconactual}} fa-2x"></i> 
+                                <p>{{$descriptactual}}</p>
+                                <p class="fw-bold fs-5">{{$tempactual}}º</p>                                 
                             </div>
                             <div class="col-4 col-lg-3 border-end">
-                                <p>{{$infoWeatherForecastArray['list']['1']['dt_txt']}}</p>
-                                <i class="fa-solid fa-cloud fa-3x"></i> 
-                                <p>{{$infoWeatherForecastArray['list']['1']['weather']['0']['description']}}</p>
-                                <p class="fw-bold fs-5">{{$infoWeatherForecastArray['list']['1']['main']['temp']}}º</p>     
+                                <p>1 hora</p>
+                                <i class="{{$iconhour1}} fa-2x"></i> 
+                                <p>{{$descripthour1}}</p>
+                                <p class="fw-bold fs-5">{{$temphour1}}º</p>     
                             </div>
                             <div class="col-4 col-lg-3 border-end">
-                                <p>{{$infoWeatherForecastArray['list']['2']['dt_txt']}}</p>
-                                <i class="fa-solid fa-cloud fa-3x"></i> 
-                                <p>{{$infoWeatherForecastArray['list']['2']['weather']['0']['description']}}</p>
-                                <p class="fw-bold fs-5">{{$infoWeatherForecastArray['list']['2']['main']['temp']}}º</p>     
+                                <p>2 horas</p>
+                                <i class="{{$iconhour2}} fa-2x"></i> 
+                                <p>{{$descripthour2}}</p>
+                                <p class="fw-bold fs-5">{{$temphour2}}º</p>     
                             </div>
                             <div class="col-4 col-lg-3">         
-                                <p>{{$infoWeatherForecastArray['list']['3']['dt_txt']}}</p>
-                                <i class="fa-solid fa-cloud fa-3x"></i> 
-                                <p>{{$infoWeatherForecastArray['list']['3']['weather']['0']['description']}}</p>
-                                <p class="fw-bold fs-5">{{$infoWeatherForecastArray['list']['3']['main']['temp']}}º</p>                                 
+                                <p>3 horas</p>
+                                <i class="{{$iconhour3}} fa-2x"></i> 
+                                <p>{{$descripthour3}}</p>
+                                <p class="fw-bold fs-5">{{$temphour3}}º</p>                                 
                             </div>
                         </div>
-                    </div>                   
+                    </div>  
+                    <!-- COLUMNA CON CARROUSEL PROXIMOS DIAS -->
+                    <div class="col-12 col-lg-2 text-center mt-4">
+                    <div class="row mb-3 ">
+                            <p class="fs-4">Próximos dias</p>
+                    </div>
+                    <div class="row">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p>Mañana</p>
+                                <i class="{{$iconday1}} fa-2x"></i> 
+                                <p>{{$descriptday1}}</p>
+                                <p class="fw-bold fs-5">{{$tempday1}}º</p> 
+                            </div>
+                                <div class="carousel-item">
+                                <p>Pasado mañana</p>
+                                <i class="{{$iconday2}} fa-2x"></i> 
+                                <p>{{$descriptday2}}</p>
+                                <p class="fw-bold fs-5">{{$tempday2}}º</p> 
+                                </div>
+                                <div class="carousel-item">
+                                <p>Dia 3</p>
+                                <i class="{{$iconday3}} fa-2x"></i> 
+                                <p>{{$descriptday3}}</p>
+                                <p class="fw-bold fs-5">{{$tempday3}}º</p> 
+                                </div>
+                                <div class="carousel-item">
+                                <p>Dia 4</p>
+                                <i class="{{$iconday4}} fa-2x"></i> 
+                                <p>{{$descriptday4}}</p>
+                                <p class="fw-bold fs-5">{{$tempday4}}º</p> 
+                                </div>
+                                <div class="carousel-item">
+                                <p>Dia 5</p>
+                                <i class="{{$iconday5}} fa-2x"></i> 
+                                <p>{{$descriptday5}}</p>
+                                <p class="fw-bold fs-5">{{$tempday5}}º</p> 
+                                </div>
+                                
+                            </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                 </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div> 
+                    </div>               
                 </div>
             </div>
                 <!-- Columna con top5 temp mas frias -->
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-3">
                 <div class="row text-center">
                     <p class="fs-3 text-light mb-3">Top 5 de las zonas más frias según tus busquedas</p>
                 </div>
@@ -178,47 +229,13 @@
                 </div>
             </div>
             
-            
-
-
-
         </div>
-
-
-
 
        </div>
- 
-      <!-- <br><br>
-        <section>
-        <div class="container justify-content-center">  
-       <p>ICONOS</p>
-       <!-- 01d 
-       <i class="fa-solid fa-sun"></i>
-       <!-- 02d     <i class="fa-solid fa-cloud-sun"></i>
-       <!-- 03d        <i class="fa-solid fa-cloud"></i>
-       <!-- 04d        <i class="fa-solid fa-cloud-meatball"></i>
-       <!-- 09d
-       <i class="fa-solid fa-cloud-rain"></i>
-       <!-- 10d        <i class="fa-solid fa-cloud-sun-rain"></i>
-       <!-- 11d        <i class="fa-solid fa-bolt"></i>
-       <!-- 13d        <i class="fa-solid fa-snowflake"></i>
-       <!-- 50d        <i class="fa-solid fa-smog"></i>     
-        <p>Ciudad: {{$infoWeatherCurrentArray['name']}}</p>
-        <p>Temperatura actual: {{$infoWeatherCurrentArray['main']['temp']}}</p><br>
-        <p>Cielo: {{$infoWeatherCurrentArray['weather']['0']['description']}}</p><br><br><br>
-        <p>Icono: {{$infoWeatherCurrentArray['weather']['0']['icon']}}</p>
-        <h2>TEMPERATURA 5 DIAS</h2>
-        <p>DIA 1:  {{$infoWeatherForecastArray['list']['0']['main']['temp']}} </p>
-        <p>DIA 2:  {{$infoWeatherForecastArray['list']['1']['main']['temp']}} </p>
-        <p>DIA 3:  {{$infoWeatherForecastArray['list']['2']['main']['temp']}} </p>
-        <p>DIA 4:  {{$infoWeatherForecastArray['list']['3']['main']['temp']}} </p>
-        <p>DIA 5:  {{$infoWeatherForecastArray['list']['4']['main']['temp']}} </p>
-        <p>TEMPERATURA DE 5 BUSQUEDAS (ORDENADAS DE MAS FRIAS A MENOS)</p>
-        </div>
-        </section>-->
-
 
 
 </body>
+
+
+
 </html>

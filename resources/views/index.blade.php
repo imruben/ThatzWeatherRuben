@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <style>
-
+        /*Pongo la foto del background aqui con css porque no he sabido hacerlo con boostrap*/
         body{
             background-image: url("/img/fondo.png");
             height: 100%;
@@ -47,7 +47,7 @@
             </div>
         </div>
                 <!-- form que recibe el codigo postal y lo envia a /index-->
-                    <form action="/weatherInfo" method="POST">
+                      <form action="/weatherInfo" method="POST">
                         <!--evita el error 419-->
                         @csrf
         <div class="row text-light justify-content-center">
@@ -64,7 +64,7 @@
                 <i class="bi bi-search ms-2"></i></button>  
             </div>            
         </div>
-        </form>
+          </form>
             
         <div class="row justify-content-center text-light text-center my-5">
             <div class="col-11 col-lg-6">
@@ -73,7 +73,6 @@
         </div>
 
     </div>
-
 
 
 </body>
