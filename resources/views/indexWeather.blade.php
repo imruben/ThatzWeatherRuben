@@ -32,6 +32,8 @@
 </head>
 <body>
 
+    <h2>{{$lolo}}</h2>
+
     <div class="container-fluid w-75">
         <!-- Row con logo -->
         <div class="row justify-content-center mt-5">
@@ -48,30 +50,30 @@
             <!-- Caja tiempo busqueda -->
             <div class="col-12 col-lg-9 bg-secondary shadow">
                 <!-- Info arriba -->
-                <div class="row align-items-center m-3">
-                    <div class="col ">       
-                        <p class="text-light fs-5">Código Postal: {{$zipcode}}</p>
-                        <p class="text-light fs-5">Ciudad: <em class="fw-bold">{{ $city }} </em></p>
+                <div class="row align-items-center ms-3 mt-3 me-3">
+                    <div class="col-12 col-lg-6 text-center">       
+                        <p class="text-light fs-5">Código Postal: <b>{{$zipcode}}</b></p>
+                        <p class="text-light fs-5">Ciudad: <b>{{ $city }} </b></p>
                     </div>
-                    <div class="col text-light ">
+                    <div class="col-12 col-lg-6 text-light text-center ">
                         <i class="bi bi-search me-2"></i></button>  
                         <a class= "text-light fs-5"href="/Home">Buscar otra zona</a>
                     </div>
                 </div>
                 <!-- Row con todas temp -->
-                <div class="row text-light p-4 ">
+                <div class="row text-light pb-4 ps-4 pe-4">
                     <!-- Columna temp actual -->
                     <div class="col-12 col-lg-12 border-bottom text-center">
                         <div class="row">
                             <p class="fs-4">Ahora</p>                                                    
                         </div>
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-sm-12 col-lg-5 text-center">
                             <i class="{{$iconactual}} fa-10x"></i> 
                             </div>
-                            <div class="col-5">
-                                <div class="fs-3 fw-bold">{{ $descriptactual }}</div>
-                                <p class="display-5 fw-bold">{{ $tempactual }}º</p>
+                            <div class="col-5 text-center">
+                                <div class="fs-3 fw-bold me-5">{{ $descriptactual }}</div>
+                                <p class="display-4 fw-bold">{{ $tempactual }}º</p>
                             </div>    
                             <div>                                
                             </div>        
@@ -168,6 +170,7 @@
                 <div class="row text-center">
                     <p class="fs-3 text-light mb-3">Top 5 de las zonas más frias según tus busquedas</p>
                 </div>
+                <!-- Bucle para solo sacar una fila cuando haya un elemento en la base de datos (hasta 5)-->
                 @for ($i=0; $i< count($top5info) and $i< 5; $i++)
                 <div class="row align-items-center border-bottom">
                     <div class="col text-center ">
@@ -177,8 +180,8 @@
                         <p class="text-light display-4">{{$top5info[$i]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6">CP: {{$top5info[$i]->zip_code}}</p>
-                        <p class="text-light fs-6">Ciudad: {{$top5info[$i]->name}}</p>                         
+                        <p class="text-light fs-6">CP: <b>{{$top5info[$i]->zip_code}}</b></p>
+                        <p class="text-light fs-6">Ciudad: <b>{{$top5info[$i]->name}}</b></p>                         
                     </div>    
                 </div>
                 @endfor

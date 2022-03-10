@@ -118,6 +118,11 @@ class WeatherController extends Controller
             $descriptday4 = $infoWeatherForecast['daily']['4']['weather']['0']['description'];
             $descriptday5 = $infoWeatherForecast['daily']['5']['weather']['0']['description'];
 
+            
+
+            
+
+
             $informacionBusqueda = new SearchInfo();
             $informacionBusqueda-> zip_code = $inputZipCode;
             $informacionBusqueda-> name = $city;
@@ -129,7 +134,7 @@ class WeatherController extends Controller
             $informacionBusqueda-> day5_temp = $tempday5;          
             $informacionBusqueda->save();
             
-
+            $lolo = $informacionBusqueda::find(2);
             $top5info =  $informacionBusqueda::orderBy('current_temp')->get();
 
             
@@ -143,7 +148,7 @@ class WeatherController extends Controller
             'tempday1' =>$tempday1,'tempday2' =>$tempday2,'tempday3' =>$tempday3,'tempday4' =>$tempday4,'tempday4' =>$tempday4,'tempday5' =>$tempday5,
             'descriptday1'=>$descriptday1,'descriptday2'=>$descriptday2,'descriptday3'=>$descriptday3,'descriptday4'=>$descriptday4,'descriptday5'=>$descriptday5,
             'iconday1'=>$iconday2,'iconday2'=>$iconday2,'iconday3'=>$iconday3,'iconday4'=>$iconday4,'iconday5'=>$iconday5,
-            'top5info' => $top5info
+            'top5info' => $top5info,'lolo' => $lolo
         ]);
         
 
