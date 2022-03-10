@@ -118,28 +118,37 @@ class WeatherController extends Controller
             $descriptday4 = $infoWeatherForecast['daily']['4']['weather']['0']['description'];
             $descriptday5 = $infoWeatherForecast['daily']['5']['weather']['0']['description'];
 
-            
+
+
 
             
-
-
+            //creamos una instancia de SearchInfo, que es la clase del archivo modelo que conecta con nuestra base de datos "searchInfo"
             $informacionBusqueda = new SearchInfo();
-            $informacionBusqueda-> zip_code = $inputZipCode;
-            $informacionBusqueda-> name = $city;
-            $informacionBusqueda-> current_temp = $tempactual;
-            $informacionBusqueda-> day1_temp = $tempday1;
-            $informacionBusqueda-> day2_temp = $tempday2;
-            $informacionBusqueda-> day3_temp = $tempday3;
-            $informacionBusqueda-> day4_temp = $tempday4;
-            $informacionBusqueda-> day5_temp = $tempday5;          
-            $informacionBusqueda->save();
-            
-            $lolo = $informacionBusqueda::find(2);
-            $top5info =  $informacionBusqueda::orderBy('current_temp')->get();
 
-            
-            
-            
+            //comprobamos si existe algun record con ese codigo postal en la base de datos
+            if($informacionBusqueda::where('zip_code',$zip_code)->exists()){
+                
+                //si existe, actualizamos los demas campos por los de la busqueda actual
+                $informacionBusqueda::where('zip_code',$zip_code)->update(['current_temp' => $tempactual, 'day1_temp' => $tempday1,
+                'day2_temp' => $tempday2,'day3_temp' => $tempday3,'day4_temp' => $tempday4,'day5_temp' => $tempday5,
+            ]);     
+                
+
+            }else{
+
+                //si no existe, creamos un nuevo record en la base de datos
+                $informacionBusqueda-> zip_code = $inputZipCode;
+                $informacionBusqueda-> name = $city;
+                $informacionBusqueda-> current_temp = $tempactual;
+                $informacionBusqueda-> day1_temp = $tempday1;
+                $informacionBusqueda-> day2_temp = $tempday2;
+                $informacionBusqueda-> day3_temp = $tempday3;
+                $informacionBusqueda-> day4_temp = $tempday4;
+                $informacionBusqueda-> day5_temp = $tempday5;          
+                $informacionBusqueda->save();
+            }
+
+            $top5info =  $informacionBusqueda::orderBy('current_temp')->get();
 
             //devuelvo la view IndexWeather junto con todas las variables que he sacado de la api
             return view('indexWeather',['zipcode'=>$zip_code,'city'=>$city,'tempactual' =>$tempactual,'descriptactual' =>$descriptactual,'iconactual'=>$iconactual, 'maindescactual'=>$maindescactual,
@@ -148,28 +157,8 @@ class WeatherController extends Controller
             'tempday1' =>$tempday1,'tempday2' =>$tempday2,'tempday3' =>$tempday3,'tempday4' =>$tempday4,'tempday4' =>$tempday4,'tempday5' =>$tempday5,
             'descriptday1'=>$descriptday1,'descriptday2'=>$descriptday2,'descriptday3'=>$descriptday3,'descriptday4'=>$descriptday4,'descriptday5'=>$descriptday5,
             'iconday1'=>$iconday2,'iconday2'=>$iconday2,'iconday3'=>$iconday3,'iconday4'=>$iconday4,'iconday5'=>$iconday5,
-            'top5info' => $top5info,'lolo' => $lolo
+            'top5info' => $top5info,
         ]);
-        
-
-
-
-        //$WeatherbyZipCode = Weather::find($id);
-
-        //$weatherZipCode = Weather::find($ZipCode);
-
-        //recoge la informacion de la base de datos
-        //$WeatherInfo = Weather::all();
-        //$WeatherInfo = Weather::orderBy('city','desc')->get();
-        //$WeatherInfo = Weather::where('city','Barcelona')->get();
-        //$WeatherInfo = Weather::latest()->get();
-
-        //enviamos la informacion de la base de datos en la variable
-        //"WeatherInfo i la view
-        /*return view('indexWeather', [
-            //'weatherInfo' => $WeatherInfo,
-            'weatherZipCode'=> $weatherZipCode,
-        ]);  */
 
     }
 

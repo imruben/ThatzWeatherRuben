@@ -32,7 +32,7 @@
 </head>
 <body>
 
-    <h2>{{$lolo}}</h2>
+    <h2></h2>
 
     <div class="container-fluid w-75">
         <!-- Row con logo -->
@@ -48,7 +48,7 @@
         <!-- Row con todo lo demas -->
         <div class="row mt-5 ">
             <!-- Caja tiempo busqueda -->
-            <div class="col-12 col-lg-9 bg-secondary shadow">
+            <div class="col-12 col-lg-7 bg-secondary shadow">
                 <!-- Info arriba -->
                 <div class="row align-items-center ms-3 mt-3 me-3">
                     <div class="col-12 col-lg-6 text-center">       
@@ -68,10 +68,10 @@
                             <p class="fs-4">Ahora</p>                                                    
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-lg-5 text-center">
+                            <div class="col-sm-12 col-lg-6 text-end">
                             <i class="{{$iconactual}} fa-10x"></i> 
                             </div>
-                            <div class="col-5 text-center">
+                            <div class="col-5 text-start">
                                 <div class="fs-3 fw-bold me-5">{{ $descriptactual }}</div>
                                 <p class="display-4 fw-bold">{{ $tempactual }}º</p>
                             </div>    
@@ -166,22 +166,23 @@
                 </div>
             </div>
                 <!-- Columna con top5 temp mas frias -->
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-md-12 col-lg-5 ">
                 <div class="row text-center">
-                    <p class="fs-3 text-light mb-3">Top 5 de las zonas más frias según tus busquedas</p>
+                    <p class="fs-3 text-light mb-2">Top 5 de las zonas más frias según tus busquedas</p>
                 </div>
                 <!-- Bucle para solo sacar una fila cuando haya un elemento en la base de datos (hasta 5)-->
                 @for ($i=0; $i< count($top5info) and $i< 5; $i++)
                 <div class="row align-items-center border-bottom">
-                    <div class="col text-center ">
+                    <div class="col-2 text-center ">
                         <p class="text-light display-6">{{$i+1}}.</p>
                     </div>
-                    <div class="col">
-                        <p class="text-light display-4">{{$top5info[$i]->current_temp}}</p>
+                    <div class="col-4">
+                        <p class="text-light display-5">{{$top5info[$i]->current_temp}}º</p>
                     </div>
-                    <div class="col">
+                    <div class="col-6">
                         <p class="text-light fs-6">CP: <b>{{$top5info[$i]->zip_code}}</b></p>
-                        <p class="text-light fs-6">Ciudad: <b>{{$top5info[$i]->name}}</b></p>                         
+                        <p class="text-light fs-6">Ciudad: <b>{{$top5info[$i]->name}}</b></p>   
+                        <p class="small text-light">Realizada: <b>{{$top5info[$i]->updated_at}}</b></p>                      
                     </div>    
                 </div>
                 @endfor

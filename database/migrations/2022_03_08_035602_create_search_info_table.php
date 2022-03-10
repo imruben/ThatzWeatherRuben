@@ -18,14 +18,14 @@ return new class extends Migration
             //campos "created_at y "updated_at"
             $table->timestamps();
             //campos que querremos guardar en la base de datos
-            $table->string('name');
-            $table->string('zip_code');
-            $table->integer('current_temp');
-            $table->integer('day1_temp');
-            $table->integer('day2_temp');
-            $table->integer('day3_temp');
-            $table->integer('day4_temp');
-            $table->integer('day5_temp');
+            $table->string('name',60);
+            $table->string('zip_code',5)->unique();
+            $table->float('current_temp',4,2);
+            $table->float('day1_temp',4,2);
+            $table->float('day2_temp',4,2);
+            $table->float('day3_temp',4,2);
+            $table->float('day4_temp',4,2);
+            $table->float('day5_temp',4,2);
         });
     }
 
