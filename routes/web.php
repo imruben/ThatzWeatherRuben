@@ -36,7 +36,7 @@ Route::get('/weatherInfo',[WeatherController::class, 'zipCodePost']);
 Route::post('/weatherInfo',[WeatherController::class, 'zipCodePost']);
 
 //ruta con la funcion Store para guardar los datos en la base de datos para el top5
-Route::put('/weatherInfo',[WeatherController::class, 'store']);
+//Route::put('/weatherInfo',[WeatherController::class, 'store']);
 
 
 

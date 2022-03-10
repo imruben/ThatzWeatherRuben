@@ -130,13 +130,19 @@ class WeatherController extends Controller
             $informacionBusqueda->save();
             
 
+            $top5info =  $informacionBusqueda::orderBy('current_temp')->get();
+
+            
+            
+
             //devuelvo la view IndexWeather junto con todas las variables que he sacado de la api
             return view('indexWeather',['zipcode'=>$zip_code,'city'=>$city,'tempactual' =>$tempactual,'descriptactual' =>$descriptactual,'iconactual'=>$iconactual, 'maindescactual'=>$maindescactual,
             'temphour1' =>$temphour1,'temphour2' =>$temphour2,'temphour3' =>$temphour3,'descripthour1'=>$descripthour1,'descripthour2'=>$descripthour2,'descripthour3'=>$descripthour3,
             'iconhour1'=>$iconhour1,'iconhour2'=>$iconhour2,'iconhour3'=>$iconhour3,
             'tempday1' =>$tempday1,'tempday2' =>$tempday2,'tempday3' =>$tempday3,'tempday4' =>$tempday4,'tempday4' =>$tempday4,'tempday5' =>$tempday5,
             'descriptday1'=>$descriptday1,'descriptday2'=>$descriptday2,'descriptday3'=>$descriptday3,'descriptday4'=>$descriptday4,'descriptday5'=>$descriptday5,
-            'iconday1'=>$iconday2,'iconday2'=>$iconday2,'iconday3'=>$iconday3,'iconday4'=>$iconday4,'iconday5'=>$iconday5
+            'iconday1'=>$iconday2,'iconday2'=>$iconday2,'iconday3'=>$iconday3,'iconday4'=>$iconday4,'iconday5'=>$iconday5,
+            'top5info' => $top5info
             ]
         );
 

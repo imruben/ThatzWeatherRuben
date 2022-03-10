@@ -62,13 +62,13 @@
                 <!-- Row con todas temp -->
                 <div class="row text-light p-4 ">
                     <!-- Columna temp actual -->
-                    <div class="col-12 col-lg-4 border-end text-center">
-                        <div class="row mb-3">
+                    <div class="col-12 col-lg-12 border-bottom text-center">
+                        <div class="row">
                             <p class="fs-4">Ahora</p>                                                    
                         </div>
-                        <div class="row align-items-center">
+                        <div class="row">
                             <div class="col-5">
-                            <i class="{{$iconactual}} fa-5x"></i> 
+                            <i class="{{$iconactual}} fa-10x"></i> 
                             </div>
                             <div class="col-5">
                                 <div class="fs-3 fw-bold">{{ $descriptactual }}</div>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                         <!-- Columna temp proximas horas -->
-                    <div class="col-12 col-lg-6 text-center mt-4 border-end ">
+                    <div class="col-12 col-lg-8 text-center mt-4 border-end ">
                         <div class="row mb-3 ">
                             <p class="fs-4">Próximas horas</p>
                         </div>
@@ -111,12 +111,12 @@
                         </div>
                     </div>  
                     <!-- COLUMNA CON CARROUSEL PROXIMOS DIAS -->
-                    <div class="col-12 col-lg-2 text-center mt-4">
+                    <div class="col-12 col-lg-4 text-center mt-4">
                     <div class="row mb-3 ">
                             <p class="fs-4">Próximos dias</p>
                     </div>
                     <div class="row">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">                       
                             <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <p>Mañana</p>
@@ -158,6 +158,7 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
+                            
                         </div>
                     </div> 
                     </div>               
@@ -173,11 +174,11 @@
                         <p class="text-light display-6">1.</p>
                     </div>
                     <div class="col">
-                        <p class="text-light display-4">-3º</p>
+                        <p class="text-light display-4">{{$top5info[0]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                        <p class="text-light fs-6">CP: {{$top5info[0]->zip_code}}</p>
+                        <p class="text-light fs-6">Ciudad: {{$top5info[0]->name}}</p>                         
                     </div>    
                 </div>
                 <div class="row align-items-center border-bottom">
@@ -185,11 +186,11 @@
                         <p class="text-light display-6">2.</p>
                     </div>
                     <div class="col">
-                        <p class="text-light display-4">-3º</p>
+                        <p class="text-light display-4">{{$top5info[1]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[1]->zip_code}}</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[1]->name}}</p>                         
                     </div>
                 </div>
                 <div class="row align-items-center border-bottom">
@@ -197,11 +198,11 @@
                         <p class="text-light display-6">3.</p>
                     </div>
                     <div class="col">
-                        <p class="text-light display-4">-3º</p>
+                        <p class="text-light display-4">{{$top5info[2]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[2]->zip_code}}</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[2]->name}}</p>                         
                     </div>
                 </div>
                 <div class="row align-items-center border-bottom">
@@ -209,11 +210,11 @@
                         <p class="text-light display-6">4.</p>
                     </div>
                     <div class="col">
-                        <p class="text-light display-4">-3º</p>
+                        <p class="text-light display-4">{{$top5info[3]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[3]->zip_code}}</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[3]->name}}</p>                         
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -221,11 +222,11 @@
                         <p class="text-light display-6">5.</p>
                     </div>
                     <div class="col">
-                        <p class="text-light display-4">-3º</p>
+                        <p class="text-light display-4">{{$top5info[4]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: 08860</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: Barcelona</p>                         
+                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[4]->zip_code}}</p>
+                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[4]->name}}</p>                         
                     </div>
                 </div>
             </div>
