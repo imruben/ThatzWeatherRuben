@@ -29,10 +29,16 @@ Route::get('/Home', function () {
     return view('index');
 });
 
+//ruta con la funcion zipCodePost donde haremos toda la busqueda de la api
 Route::get('/weatherInfo',[WeatherController::class, 'zipCodePost']);
 
-
+//ruta POST para recoger el codigo postal de la clase
 Route::post('/weatherInfo',[WeatherController::class, 'zipCodePost']);
+
+//ruta con la funcion Store para guardar los datos en la base de datos para el top5
+Route::put('/weatherInfo',[WeatherController::class, 'store']);
+
+
 
 //Llamamos al controlador WeatherController y usamos la funcion WeatherInfo
 //Route::get('/weatherInfo',[WeatherController::class,'indexWeather']);
