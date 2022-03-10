@@ -134,6 +134,7 @@ class WeatherController extends Controller
 
             
             
+            
 
             //devuelvo la view IndexWeather junto con todas las variables que he sacado de la api
             return view('indexWeather',['zipcode'=>$zip_code,'city'=>$city,'tempactual' =>$tempactual,'descriptactual' =>$descriptactual,'iconactual'=>$iconactual, 'maindescactual'=>$maindescactual,
@@ -143,8 +144,8 @@ class WeatherController extends Controller
             'descriptday1'=>$descriptday1,'descriptday2'=>$descriptday2,'descriptday3'=>$descriptday3,'descriptday4'=>$descriptday4,'descriptday5'=>$descriptday5,
             'iconday1'=>$iconday2,'iconday2'=>$iconday2,'iconday3'=>$iconday3,'iconday4'=>$iconday4,'iconday5'=>$iconday5,
             'top5info' => $top5info
-            ]
-        );
+        ]);
+        
 
 
 

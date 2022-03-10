@@ -48,6 +48,7 @@
         </div>
 
         <!-- ALERT DE BOOSTRAP QUE SOLO SALDRA SI HAY UN ERROR GUARDADO EN LA SESION -->
+        
         @if(session('mensaje'))
         <div class="row justify-content-center">
             <div class="col-11 col-lg-5">
@@ -55,9 +56,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
              <p class="lead">{{ session('mensaje') }}</p>
             </div>
-        </div>
+            </div>
         </div>
         @endif
+
+        
                 <!-- form que recibe el codigo postal y lo envia a /index-->
                       <form action="/weatherInfo" method="POST">
                         <!--evita el error 419-->

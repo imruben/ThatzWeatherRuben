@@ -32,7 +32,6 @@
 </head>
 <body>
 
-    
     <div class="container-fluid w-75">
         <!-- Row con logo -->
         <div class="row justify-content-center mt-5">
@@ -169,75 +168,23 @@
                 <div class="row text-center">
                     <p class="fs-3 text-light mb-3">Top 5 de las zonas más frias según tus busquedas</p>
                 </div>
+                @for ($i=0; $i< count($top5info) and $i< 5; $i++)
                 <div class="row align-items-center border-bottom">
                     <div class="col text-center ">
-                        <p class="text-light display-6">1.</p>
+                        <p class="text-light display-6">{{$i+1}}.</p>
                     </div>
                     <div class="col">
-                        <p class="text-light display-4">{{$top5info[0]->current_temp}}</p>
+                        <p class="text-light display-4">{{$top5info[$i]->current_temp}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-light fs-6">CP: {{$top5info[0]->zip_code}}</p>
-                        <p class="text-light fs-6">Ciudad: {{$top5info[0]->name}}</p>                         
+                        <p class="text-light fs-6">CP: {{$top5info[$i]->zip_code}}</p>
+                        <p class="text-light fs-6">Ciudad: {{$top5info[$i]->name}}</p>                         
                     </div>    
                 </div>
-                <div class="row align-items-center border-bottom">
-                    <div class="col text-center ">
-                        <p class="text-light display-6">2.</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light display-4">{{$top5info[1]->current_temp}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[1]->zip_code}}</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[1]->name}}</p>                         
-                    </div>
-                </div>
-                <div class="row align-items-center border-bottom">
-                    <div class="col text-center ">
-                        <p class="text-light display-6">3.</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light display-4">{{$top5info[2]->current_temp}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[2]->zip_code}}</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[2]->name}}</p>                         
-                    </div>
-                </div>
-                <div class="row align-items-center border-bottom">
-                    <div class="col text-center ">
-                        <p class="text-light display-6">4.</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light display-4">{{$top5info[3]->current_temp}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[3]->zip_code}}</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[3]->name}}</p>                         
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col text-center ">
-                        <p class="text-light display-6">5.</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light display-4">{{$top5info[4]->current_temp}}</p>
-                    </div>
-                    <div class="col">
-                        <p class="text-light fs-6 fw-bold">CP: {{$top5info[4]->zip_code}}</p>
-                        <p class="text-light fs-6 fw-bold">Ciudad: {{$top5info[4]->name}}</p>                         
-                    </div>
-                </div>
-            </div>
-            
+                @endfor
+                              
+            </div>           
         </div>
-
        </div>
-
-
 </body>
-
-
-
 </html>
