@@ -1,5 +1,6 @@
 # ThatzWeather
 
-#### Página web creada con Laravel que proporciona información meteorológica real de una ciudad española introduciendo su código postal.
+#### About
+Web page created with Laravel that provides real weather information for a Spanish city by entering its postal code.
 
-- Usando la API openweather.org
+- Using openweather.org API.
